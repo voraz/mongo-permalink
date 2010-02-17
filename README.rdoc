@@ -6,7 +6,7 @@
 
 
 == Usage
-    class Order
+    class Product
       include MongoMapper::Document
       include MongoPermalink
 
