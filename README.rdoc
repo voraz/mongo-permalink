@@ -1,0 +1,25 @@
+= MongoMapper Permalink
+
+
+== Installation
+    script/plugin install git://github.com/voraz/mongo-permalink.git
+
+
+== Usage
+    class Order
+      include MongoMapper::Document
+      include MongoPermalink
+
+      key :name, String
+      has_permalink :name
+
+    end
+
+
+    > product = Product.new(:name=>"foo bar")
+     => #<Order _id: 4b744d47421aa95b91000001, name: "foo bar", :permalink=>nil>
+    > product.save
+     => true
+    > product.permalink
+     => "foo-bar"
+
