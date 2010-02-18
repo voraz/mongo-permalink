@@ -28,7 +28,7 @@ module MongoPermalink
 
     private
       def create_permalink
-        self.permalink = String.new(read_attribute(self.class.source_key)) || ""
+        self.permalink = String.new(read_attribute(self.class.source_key).force_encoding("utf-8")) || ""
         remove_special_chars
         random_permalink if permalink.blank?
         create_unique_permalink
